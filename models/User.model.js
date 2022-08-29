@@ -27,18 +27,18 @@ const userSchema = new Schema(
       default:
         "https://res.cloudinary.com/dhgfid3ej/image/upload/v1558806705/asdsadsa_iysw1l.jpg",
     },
-    dateOfBirth: {
-      type: Date,
-      required: 'Please fill date of birth',
-      trim: true,
-      min: '1900-00-00',
-    },
-    dateOfDeath: {
-      type: Date,
-      required: 'Please fill aproximate date of death',
-      trim: true,
-      max: '2150-00-00',
-    }
+    // dateOfBirth: {
+    //   // type: new Date(0).setFullYear(year, month, day),
+    //   // required: 'Please fill date of birth',
+    //   trim: true,
+    //   min: '1900-00-00',
+    // },
+    // dateOfDeath: {
+    //   // type: new Date(0).setFullYear(year, month, day),
+    //   // required: 'Please fill aproximate date of death',
+    //   trim: true,
+    //   max: '2150-00-00',
+    // }
   },
   {
     timestamps: true,
