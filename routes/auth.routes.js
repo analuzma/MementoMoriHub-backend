@@ -1,7 +1,7 @@
 const router = require("express").Router();
 //import controllers
 const {signupProcess, loginProcess, logoutProcess} = require("../controllers/auth.controller")
-const { verifyToken } = require("../middlewares")
+const { verifyToken } = require("../middleware")
 
 //middlewares
 router.post("/signup", signupProcess);
