@@ -10,16 +10,10 @@ const journalSchema = new Schema(
       type: String,
       required: [true, "Journal entry must have content"],
     },
-    //images2:[String], ["https://dylan.com/",....]
-    images: {
-      type: [
-        {
-          id: String,
-          url: String,
-          name: String,
-        },
-      ],
-      max: [3, "Only 3 images allowed per journal entry"],
+    coverUrl: {
+      type: String,
+      default:
+        "https://picsum.photos/300/200?grayscale",
     },
     date: {
         type: Date,
