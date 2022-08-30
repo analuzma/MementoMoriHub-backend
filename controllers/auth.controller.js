@@ -5,7 +5,7 @@ const { clearRes, createJWT } = require("../utils/utils")
 
 
 exports.signupProcess = async (req, res, next) => {
-    const { role, email, password, confirmPassword, ...restUser } = req.body;
+    const { role, email, password, confirmPassword,dateOfBirth, dateOfDeath, ...restUser } = req.body;
 
     try{
         if (!email.length || !password.length || !confirmPassword.length) return res.status(400).json({ errorMessage: "No empty fields." });
@@ -18,8 +18,8 @@ exports.signupProcess = async (req, res, next) => {
 
         const salt = bcryptjs.genSaltSync(10);
         const hashedPassword = bcryptjs.hashSync(password,salt);
-
-        const user = await User.create({ email, password: hashedPassword, ...restUser,});
+        
+        const user = await User.create({ email, password: hashedPassword, dateOfBirth, dateOfDeath, ...restUser,});
         const [header, payload, signature] = createJWT(user);
         res.cookie("headload", `${header}.${payload}`, {
             maxAge: 1000 * 60 * 30,

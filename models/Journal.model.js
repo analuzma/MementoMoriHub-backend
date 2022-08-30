@@ -29,6 +29,7 @@ const journalSchema = new Schema(
       type: Boolean,
       default: false,
     },
+    _author: { type: Schema.Types.ObjectId, ref: "User" }
   },
   { timestamps: true }
 );

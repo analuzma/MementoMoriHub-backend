@@ -6,6 +6,7 @@ const { verifyToken, checkRole } = require("../middleware")
 
 //Read
 router.get("/my-profile", verifyToken, checkRole( ["User", "Admin"] ), getLoggedUser);
+
 //Update
 router.patch("/edit", verifyToken, checkRole( ["User", "Admin"] ), editProfile);
 //Delete 
