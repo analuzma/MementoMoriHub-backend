@@ -20,7 +20,7 @@ const storage = new CloudinaryStorage({
                 }
                 cb(null, file.originalname)
             },
-            public_id: `app-${file.originalname}`
+            public_id: `mm-${file.originalname}`
         }
     }
 });

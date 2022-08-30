@@ -1,5 +1,4 @@
 const router = require("express").Router();
-//importar el controlador 
 const { getLoggedUser, editProfile, deleteAccount } = require("../controllers/user.controller")
 const { readAllUsers } = require("../controllers/admin.controller")
 const { verifyToken, checkRole } = require("../middleware")
