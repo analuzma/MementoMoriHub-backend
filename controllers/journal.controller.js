@@ -89,7 +89,7 @@ exports.getJournalEntryById = async (req, res, next) => {
   const { id } = req.params;
   const {_id:_author} = req.user
   try {
-    const journalEntry = await Journal.findById({id,_author});
+    const journalEntry = await Journal.findById({id},{_author});
     const newJournalEntry = clearRes(journalEntry.toObject());
     res.status(201).json({ journalEntry: newJournalEntry });
   } catch (error) {
