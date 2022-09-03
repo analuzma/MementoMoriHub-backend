@@ -8,7 +8,7 @@ exports.signupProcess = async (req, res, next) => {
     const { role, email, password, confirmPassword,dateOfBirth, dateOfDeath, ...restUser } = req.body;
 
     try{
-        if (!email.length || !password.length || !confirmPassword.length) return res.status(400).json({ errorMessage: "No empty fields." });
+        if (!email.length || !password.length || !confirmPassword.length) return res.status(400).json({ errorMessage: "Please do not send empty fields." });
         if (password != confirmPassword) return res.status(400).json({ errorMessage: "Passwords do not match." });
         const regex = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/;
         if (!regex.test(password)) return res.status(400).json({errorMessage:"Password be at least 8 characters long and contain a lower case character, a upper case character and a number."})
@@ -50,7 +50,7 @@ exports.signupProcess = async (req, res, next) => {
 exports.loginProcess = async (req, res, next) => {
     const {email, password} = req.body
     try{
-        if(!email || !password || !email.length || !password.length ) return res.status(400).json({ errorMessage: "No debes mandar campos vacios!" }); 
+        if(!email || !password || !email.length || !password.length ) return res.status(400).json({ errorMessage: "No not send empty fields." }); 
 
         const user = await User.findOne({email})
         if(!user)return res.status(400).json({ errorMessage: "Unvalid credentials." });
