@@ -1,16 +1,40 @@
 const { Schema, model } = require("mongoose");
 
-// TODO: Please make sure you edit the user model to whatever makes sense in this case
 const userSchema = new Schema(
   {
-    username: {
+    email: {
       type: String,
-      // unique: true -> Ideally, should be unique, but its up to you
+      unique: true,
+      required: true,
+      match: [/^\S+@\S+\.\S+$/, "Please use a valid email address."],
+      trim: true,
     },
-    password: String,
+    password: {
+      type: String,
+      required: true,
+    },
+    role: {
+      type: String,
+      enum: ["Admin", "User"],
+      default: "User",
+    },
+    firstName: {
+      type: String,
+      minlength: 1,
+    },
+    imageUrl: {
+      type: String,
+      default:
+        "https://res.cloudinary.com/dhgfid3ej/image/upload/v1558806705/asdsadsa_iysw1l.jpg",
+    },
+    dateOfBirth: {
+      type: Date,
+    },
+    dateOfDeath: {
+      type: Date,
+    }
   },
   {
-    // this second object adds extra properties: `createdAt` and `updatedAt`
     timestamps: true,
   }
 );
