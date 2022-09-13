@@ -5,10 +5,10 @@ const { clearRes } = require("../utils/utils");
 
 //CREATE
 exports.createJournalEntry = async (req, res, next) => {
-  const { title, entry, coverUrl, date, isFeatured } = req.body;
+  const { title, description, coverUrl, date, isFeatured } = req.body;
   const {_id:_author} = req.user
   try {
-    const journalEntry = await Journal.create({ _author, title, entry, coverUrl, date, isFeatured });
+    const journalEntry = await Journal.create({ _author, title, description, coverUrl, date, isFeatured });
     const newJournalEntry = clearRes(journalEntry.toObject());
     res.status(201).json({ journalEntry: newJournalEntry });
   } catch (error) {
