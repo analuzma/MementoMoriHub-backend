@@ -50,7 +50,7 @@ exports.signupProcess = async (req, res, next) => {
 exports.loginProcess = async (req, res, next) => {
     const {email, password} = req.body
     try{
-        if(!email || !password || !email.length || !password.length ) return res.status(400).json({ errorMessage: "No not send empty fields." }); 
+        if(!email || !password || !email.length || !password.length ) return res.status(400).json({ errorMessage: "Do not send empty fields." }); 
 
         const user = await User.findOne({email})
         if(!user)return res.status(400).json({ errorMessage: "Unvalid credentials." });
