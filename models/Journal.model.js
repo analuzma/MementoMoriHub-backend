@@ -6,9 +6,9 @@ const journalSchema = new Schema(
       type: String,
       required: [true, "Journal entry must have a title"],
     },
-    entry: {
+    description: {
       type: String,
-      required: [true, "Journal entry must have content"],
+      required: [true, "Journal description must have content"],
     },
     coverUrl: {
       type: String,
