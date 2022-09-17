@@ -19,7 +19,7 @@
 - Express.js
 - MongoDB
 
-Use Yarn start
+Use "npm run dev" to start
 
 ### API
 - [Stoicquotesapi](http://https://stoicquotesapi.com/ "Stoicquotesapi")
